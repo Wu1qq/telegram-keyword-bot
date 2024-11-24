@@ -1,18 +1,108 @@
-bot_token: "YOUR_BOT_TOKEN_HERE"  # 请替换为你的实际bot token
-database:
-  url: "sqlite:///db/keyword_bot.db"
-admin_users:
-  - 123456789  # 替换为你的Telegram用户ID
+# 账户配置
+account:
+  # 监听频道信息的账户配置
+  api_id: "YOUR_API_ID"              # Telegram API ID
+  api_hash: "YOUR_API_HASH"          # Telegram API Hash
+  phone: "+8613800138000"            # 手机号，用于接收验证码
+  username: "your_username"          # Telegram 用户名
+  
+  # Bot配置
+  bot_token: "BOT_TOKEN"             # Bot Token，从 @BotFather 获取
+  bot_username: "your_bot_username"  # Bot 用户名
 
+# 代理配置
+proxy:
+  type: SOCKS5      # 代理类型：SOCKS4, SOCKS5, HTTP
+  address: null     # 代理服务器地址，例如：127.0.0.1
+  port: null        # 代理服务器端口，例如：1088
+  username: null    # 代理认证用户名（可选）
+  password: null    # 代理认证密码（可选）
+
+# 管理员用户配置
+admin_users:
+  - 123456789  # 管理员的 Telegram 用户 ID，可添加多个
+
+# 监控设置
 monitor:
+  # 每个用户最多可订阅的关键词数量
   max_keywords_per_user: 10
+  # 检查消息的时间间隔（秒）
   check_interval: 60
 
+# 通知消息模板设置
 notification:
+  # 可用变量：
+  # {keyword} - 匹配的关键词
+  # {group_name} - 来源群组/频道名称
+  # {sender_id} - 发送者ID
+  # {sender_username} - 发送者用户名
+  # {sender_name} - 发送者昵称
+  # {source} - 消息来源类型（群组/频道）
   template: |
     关键词：{keyword}
     来源群组：{group_name}
     发送人ID：{sender_id}
     发送人用户名：{sender_username}
     用户昵称：{sender_name}
-    监控来源：{source} 
+    监控来源：{source}
+
+# 消息过滤设置
+filters:
+  # 支持的消息类型
+  message_types:
+    - text     # 文本消息
+    - photo    # 图片消息
+    - video    # 视频消息
+    - document # 文档消息
+    - voice    # 语音消息
+  
+  # 支持的发送者类型
+  sender_types:
+    - user      # 普通用户
+    - admin     # 管理员
+    - anonymous # 匿名用户
+
+  # 消息防重复设置
+  duplicate:
+    # 重复消息检测时间窗口（秒）
+    window: 600
+    # 是否启用防重复
+    enabled: true
+
+# 高级功能设置
+advanced:
+  # 聚合消息设置
+  aggregation:
+    # 默认聚合时间间隔（秒）
+    default_interval: 300
+    # 触发聚合的最小消息数
+    min_messages: 5
+  
+  # 延迟发送设置
+  delay:
+    # 最大延迟时间（秒）
+    max_delay: 3600
+    # 默认延迟时间（秒）
+    default_delay: 0
+  
+  # 消息格式化默认设置
+  format:
+    bold: false    # 粗体
+    italic: false  # 斜体
+    code: false    # 代码块
+    
+  # 上下文显示设置
+  context:
+    # 默认显示的上下文消息数量
+    default_lines: 2
+    # 最大显示行数
+    max_lines: 5
+
+# 日志设置
+logging:
+  # 日志级别: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  # 日志文件路径
+  file: "logs/bot.log"
+  # 日志保留天数
+  retention_days: 7
