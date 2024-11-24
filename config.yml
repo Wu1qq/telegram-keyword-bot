@@ -1,0 +1,18 @@
+bot_token: "YOUR_BOT_TOKEN_HERE"  # 请替换为你的实际bot token
+database:
+  url: "sqlite:///db/keyword_bot.db"
+admin_users:
+  - 123456789  # 替换为你的Telegram用户ID
+
+monitor:
+  max_keywords_per_user: 10
+  check_interval: 60
+
+notification:
+  template: |
+    关键词：{keyword}
+    来源群组：{group_name}
+    发送人ID：{sender_id}
+    发送人用户名：{sender_username}
+    用户昵称：{sender_name}
+    监控来源：{source} 
