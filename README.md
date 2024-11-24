@@ -1,6 +1,6 @@
 # Telegram 关键词提醒机器人
 
-[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](https://github.com/yourusername/telegram-keyword-bot)
+[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](https://github.com/Wu1qq/telegram-keyword-bot.git)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9+-yellow.svg)](https://www.python.org)
 
@@ -53,7 +53,7 @@ sudo yum install -y python39 python39-devel git sqlite
 克隆仓库
 
 bash
-git clone https://github.com/yourusername/telegram-keyword-bot.git
+git clone https://github.com/Wu1qq/telegram-keyword-bot.git
 cd telegram-keyword-bot
 
 
@@ -113,13 +113,21 @@ yaml
 account:
 # 监听频道信息的账户
 api_id: 'YOUR_API_ID'
+
 api_hash: 'YOUR_API_HASH'
+
 phone: '+86190000010'
+
 username: 'your_username'
+
 # 发送消息的bot token
+
 bot_token: 'BOT_TOKEN'
+
 bot_username: 'your_bot_username'
+
 代理配置（如需要）
+
 proxy:
 type: SOCKS5
 address: null
@@ -244,9 +252,3 @@ Telegram API 验证成功
 - 作者：记忆匪浅
 - 邮箱：a3361150770@gmail.com
 
-## 详细文档
-
-更多详细信息请参考：
-- [部署指南](docs/deployment_guide.md)
-- [API文档](docs/api.md)
-- [配置说明](docs/configuration.md)
